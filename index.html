@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precificação de Ingredientes</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .inner-container {
+            display: inline-block; 
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .neon {
+            text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            fill: #ff00ff;
+            stroke: #ff00ff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: neon 1.5s alternate infinite;
+        }
+
+        @keyframes neon {
+            from {
+                filter: drop-shadow(0 0 5px #ff00ff);
+            }
+
+            to {
+                filter: drop-shadow(0 0 15px #ff00ff);
+            }
+        }
+
+        .btnAction {
+            background-color: #ff00ff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btnAction:hover {
+            background-color: #fff;
+            color: #ff00ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ff00ff;
+            word-break: break-all;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .total-cost {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #ff00ff;
+            color: #fff;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-bottom-color: #ff00ff;
+        }
+
+        .container button {
+            margin-top: 20px;
+        }
+
+       
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: black;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #ff00ff; 
+    box-shadow: 
+        0 0 5px #ff00ff,
+        0 0 15px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 50px #ff00ff;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container neon">
+        <h2 class="neon">Precificação de Ingredientes na Receita</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ingredientes</th>
+                    <th>Preço do ingrediente na embalagem fechada</th>
+                    <th>Quantidade da embalagem fechada em gramas</th>
+                    <th>Quantidade do ingrediente na receita em gramas </th>
+                    <th>Custo do ingrediente na receita</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+            </tbody>
+        </table>
+        <button id="btnAddRow" class="btnAction neon" style="color: white;">Adicionar</button>
+        <button id="btnSalvar" class="btnAction neon" style="color: white;">Salvar</button>
+        <button id="btnLimpar" class="btnAction neon" style="color: white;">Limpar</button>
+        <p class="total-cost neon">Total do custo da receita: R$ <span id="total-cost">0.00</span></p>
+    </div>
+    <script src="matematica.js"></script>
+</body>
+
+</html>
